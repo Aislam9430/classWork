@@ -4,13 +4,13 @@ public class ArraysMain
 {	
 	private int[] testArray;
 
-	public ArraysMain()
+	public void arrayNotes() 
 	{
 		// 2wayz to make an array
 		int[] firstWay = {0,1,2,3,4,5};
 		// only works wit declaration
-		int[] secondWay = new int[10];
-		secondWay[0] = 2;
+		String[] secondWay = new String[10];
+		///secondWay[0] = 2;
 		
 		//2wayz to iterate thru an arrray
 		for(int i = 0; i < secondWay.length;i++)
@@ -18,13 +18,27 @@ public class ArraysMain
 			System.out.println("The number" + i + "elemement is" + secondWay[i]);
 			
 		}
-		for(int value:secondWay)
+		for(String value:secondWay)
 		{
 			System.out.println("element is" + value);
 		}
-		
+		// Note: Primative arrays are autom-Populated
+		// Object arrays are not populated(Nulll)
+	}
+	public ArraysMain()
+	{
+		testArray = new int[50];
+		populate(testArray);
 	}
 
+	private void populate(int[] arr)
+	{
+		for(int i = 0; i < arr.length;i++)
+		{
+			arr[i] = diceRoll(i);
+		}
+		
+	}
 	public static void main(String[] args) 
 	{
 		ArraysMain sample = new ArraysMain();
