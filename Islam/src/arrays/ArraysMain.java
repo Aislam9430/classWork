@@ -1,5 +1,7 @@
 package arrays;
 
+import java.util.Arrays;
+
 public class ArraysMain 
 {	
 	private int[] testArray;
@@ -13,7 +15,7 @@ public class ArraysMain
 		///secondWay[0] = 2;
 		
 		//2wayz to iterate thru an arrray
-		for(int i = 0; i < secondWay.length;i++)
+		/*for(int i = 0; i < secondWay.length;i++)
 		{
 			System.out.println("The number" + i + "elemement is" + secondWay[i]);
 			
@@ -21,21 +23,61 @@ public class ArraysMain
 		for(String value:secondWay)
 		{
 			System.out.println("element is" + value);
-		}
+		}*/
 		// Note: Primative arrays are autom-Populated
 		// Object arrays are not populated(Nulll)
 	}
 	public ArraysMain()
 	{
 		testArray = new int[50];
-		populate(testArray);
+		populate1ToN(testArray);
+		shuffle(testArray);
+		/*populate(testArray);
+		countOccurences(testArray,2,12);*/
+		System.out.println(Arrays.toString(testArray));
 	}
 
+	private void shuffle(int[] arr)
+	{
+		for(int i = 0 ; i < arr.length; i++)
+		{
+			swap(arr,i,(int) (Math.random() * arr.length));
+		}
+	}
+	private void swap(int[] arr, int i, int j) 
+	{
+		int placeholder = arr[i];
+		arr[i] = arr[j];
+		arr[j] = placeholder;
+		
+	}
+	private void populate1ToN(int[] ar)
+	{
+		for(int i = 0; i <  ar.length;i++)
+		{
+			ar[i] = i+1;
+		}
+		
+	}
+	private void countOccurences(int[] arr, int start, int end)
+	{
+		int[] counter = new int[end - start + 1];
+		for(int value: arr)
+		{
+			counter[value - start]++;
+		}
+		for(int i = 0; i < counter.length; i++)
+		{
+			System.out.println("The value" + " " + (i + start) + " "+ "was rolled" 
+		+ " " + counter[i] + " " +  "times");
+		}
+		
+	}
 	private void populate(int[] arr)
 	{
 		for(int i = 0; i < arr.length;i++)
 		{
-			arr[i] = diceRoll(i);
+			arr[i] = diceRoll(2);
 		}
 		
 	}
