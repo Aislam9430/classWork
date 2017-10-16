@@ -4,7 +4,9 @@ import java.util.Arrays;
 
 public class ArraysMain 
 {	
-	private int[] testArray;
+	private String[] suits;
+	private String[] values;
+	//private int[] testArray;
 
 	public void arrayNotes() 
 	{
@@ -29,14 +31,38 @@ public class ArraysMain
 	}
 	public ArraysMain()
 	{
-		testArray = new int[50];
-		populate1ToN(testArray);
+		/*populate1ToN(testArray);
 		shuffle(testArray);
-		/*populate(testArray);
+		populate(testArray);
 		countOccurences(testArray,2,12);*/
-		System.out.println(Arrays.toString(testArray));
+		
+		
+		
+		suits = new String[4];
+		suits[0] = "Clubs";  
+		suits[1] = "Hearts";  
+		suits[2] = "Diamonds ";  
+		suits[3] = "Spades";  
+		values[0] = "Ace";
+		values[12] = "king";
+		values[11] = "queen";
+		values[10] = "jack";
+		populate1ToN(values);
+		printDeck();
+
 	}
 
+	private void printDeck() 
+	{
+		for(String suit:suits)
+		{
+			for(String value : values)
+			{
+				System.out.println(value + " of " + suit);
+			}
+		}
+		
+	}
 	private void shuffle(int[] arr)
 	{
 		for(int i = 0 ; i < arr.length; i++)
@@ -51,11 +77,11 @@ public class ArraysMain
 		arr[j] = placeholder;
 		
 	}
-	private void populate1ToN(int[] ar)
+	private void populate1ToN(String[] ar)
 	{
-		for(int i = 0; i <  ar.length;i++)
+		for(int i = 1; i <  10;i++)
 		{
-			ar[i] = i+1;
+			ar[i] = Integer.toString(i);
 		}
 		
 	}
