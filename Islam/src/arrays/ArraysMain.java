@@ -6,7 +6,7 @@ public class ArraysMain
 {	
 	private String[] suits;
 	private String[] values;
-	//private int[] testArray;
+	private int[] testArray;
 
 	public void arrayNotes() 
 	{
@@ -29,16 +29,77 @@ public class ArraysMain
 		// Note: Primative arrays are autom-Populated
 		// Object arrays are not populated(Nulll)
 	}
+	private int largestNumber(int[] arr)
+	{
+		
+	}
+	private int longestConsecutiveOrder(int[] arr)
+	{
+		int count = 0;
+		int breaks = 0;
+		int[] countArray = new int[arr.length];
+		for(int i = 0; i < arr.length; i++)
+		{
+			if(isConsecutiveOrder(arr) == true)
+			{
+				count++;
+			}
+			else
+			{
+				countArray[breaks] = count;
+				count = 0;
+				breaks++;
+			}
+		}
+		
+	}
+	private boolean isConsecutiveOrder(int[] arr)
+	{
+		for(int i = 0; i < arr.length-1;i++)
+		{
+			if(arr[i] + 1 == arr[i+1])
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	private void cycleThrough(int[] arr,int n)
+	{
+		for(int i = 0; i<n;i++)
+		{
+			frontToBack(arr);
+		}
+	}
+	private void frontToBack(int[] arr)
+	{
+		int front = arr[0];
+		for(int i = 0; i < arr.length-1; i++)
+		{
+			arr[i] = arr[i+1];
+			
+		}
+		arr[arr.length-1] = front;
+		
+	}
+	private int[] subArray(int[] arr, int psn, int length)
+	{
+		int[] newArray = new int[length];
+		for(int i = psn; i < length; i++)
+		{
+			newArray[i-psn] = arr[psn];
+		}
+		return newArray;
+				
+	}
 	public ArraysMain()
 	{
-		/*populate1ToN(testArray);
-		shuffle(testArray);
+		int[] testArray = new int[20];
 		populate(testArray);
-		countOccurences(testArray,2,12);*/
 		
 		
 		
-		suits = new String[4];
+		/*suits = new String[4];
 		suits[0] = "Clubs";  
 		suits[1] = "Hearts";  
 		suits[2] = "Diamonds ";  
@@ -46,13 +107,14 @@ public class ArraysMain
 		values[0] = "Ace";
 		values[12] = "king";
 		values[11] = "queen";
-		values[10] = "jack";
-		populate1ToN(values);
-		printDeck();
+		values[10] = "jack";*/
+		System.out.println(Arrays.toString(subArray(testArray,2,2)));
+		/*populate1ToN(values);
+		printDeck();*/
 
 	}
-
-	private void printDeck() 
+	
+	/*private void printDeck() 
 	{
 		for(String suit:suits)
 		{
@@ -98,12 +160,12 @@ public class ArraysMain
 		+ " " + counter[i] + " " +  "times");
 		}
 		
-	}
+	}*/
 	private void populate(int[] arr)
 	{
 		for(int i = 0; i < arr.length;i++)
 		{
-			arr[i] = diceRoll(2);
+			arr[i] = i;
 		}
 		
 	}
