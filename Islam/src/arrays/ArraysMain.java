@@ -29,40 +29,57 @@ public class ArraysMain
 		// Note: Primative arrays are autom-Populated
 		// Object arrays are not populated(Nulll)
 	}
-	private int largestNumber(int[] arr)
+	private int[] longestConsecutiveSeqAndIndex(int[] arr) 
 	{
-		
+		int[] data = new int[2];
+		data[0] = 1;
+		int currentCount = 1;
+		for(int i = 0; i < arr.length; i++) 
+		{
+			while(i + currentCount < arr.length && isConsecutive(arr, i, i+currentCount)) 
+			{
+				currentCount++;
+			}
+			if(currentCount > data[0])
+			{
+				data[0] = currentCount;
+				data[1] = i;
+			}
+			i = i + currentCount-1;//saves time
+			data[1] =i;
+		}
+		return data;
 	}
 	private int longestConsecutiveOrder(int[] arr)
 	{
-		int count = 0;
-		int breaks = 0;
-		int[] countArray = new int[arr.length];
-		for(int i = 0; i < arr.length; i++)
+		int maxLength = 1;
+		int currentCount = 1;
+		for(int i = 0; i < arr.length; i++) 
 		{
-			if(isConsecutiveOrder(arr) == true)
+			while(i + currentCount < arr.length && isConsecutive(arr, i, i+currentCount)) 
 			{
-				count++;
+				currentCount++;
 			}
-			else
+			if(currentCount > maxLength)
 			{
-				countArray[breaks] = count;
-				count = 0;
-				breaks++;
+				maxLength = currentCount;
 			}
+			i = i + currentCount-1;//saves time
+			currentCount = 1;
 		}
-		
+		return maxLength;
 	}
-	private boolean isConsecutiveOrder(int[] arr)
+	
+	private boolean isConsecutive(int[] arr,int start,int end)
 	{
-		for(int i = 0; i < arr.length-1;i++)
+		for(int i = start; i < end; i++ ) 
 		{
-			if(arr[i] + 1 == arr[i+1])
+			if(arr[i] + 1 != arr[i+1]) 
 			{
-				return true;
+				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 	private void cycleThrough(int[] arr,int n)
 	{
@@ -94,24 +111,18 @@ public class ArraysMain
 	}
 	public ArraysMain()
 	{
-		int[] testArray = new int[20];
-		populate(testArray);
+		wednesdayMethods();
+	}
+	
+	private void wednesdayMethods() 
+	{
+		int[] diceRolls = new int[10000];
+		populate(diceRolls);
+		int[] data = longestConsecutiveSeqAndIndex(diceRolls);
+		int longest = data[0];
+		System.out.println("The Longest sequence is" + longest + "rolls." + "It happened on roll#" + data[1] + "The sequence was" + Arrays.toString(subArray)  );
 		
 		
-		
-		/*suits = new String[4];
-		suits[0] = "Clubs";  
-		suits[1] = "Hearts";  
-		suits[2] = "Diamonds ";  
-		suits[3] = "Spades";  
-		values[0] = "Ace";
-		values[12] = "king";
-		values[11] = "queen";
-		values[10] = "jack";*/
-		System.out.println(Arrays.toString(subArray(testArray,2,2)));
-		/*populate1ToN(values);
-		printDeck();*/
-
 	}
 	
 	/*private void printDeck() 
@@ -165,7 +176,7 @@ public class ArraysMain
 	{
 		for(int i = 0; i < arr.length;i++)
 		{
-			arr[i] = i;
+			arr[i] = diceRoll(2);
 		}
 		
 	}
