@@ -21,7 +21,12 @@ public class Person
 			this.home= home;
 
 		}
-
+		public String toString()
+		{
+			return "Hi My name is" + " " + firstName+ " "  + lastName + " " 
+			+  " "  +"and I am from" + " " + home;
+		}
+		
 
 
 

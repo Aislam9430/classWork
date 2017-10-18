@@ -5,14 +5,16 @@ public class ObjectMain
 
 	public ObjectMain() 
 	{
-		Person[] people = new Person[12];
+		Object[] people = new Person[12];
 		populate(people);
-		for(Person p:people)
+		people[0] = new Thing("toaster oven");
+		for(Object p:people)
 		{
-			System.out.println(p);
+			System.out.println(p.toString());
 		}
+		
 	}
-	private void populate(Person[] arr)
+	private void populate(Object[] arr)
 	{
 		for(int i = 0; i < arr.length; i++)
 		{
@@ -21,7 +23,17 @@ public class ObjectMain
 			String lastName = randomNameFrom(Person.LAST_START,
 			Person.LAST_MIDDLE,Person.LAST_END);
 			Borough home = randomBorough();
-			arr[i] = new Person(firstName,lastName,home);
+			//In an object array multiple data types ARE ALLOWED 
+			if(Math.random() < .6)
+			{
+				arr[i] = new Person(firstName,lastName,home);
+			}
+			else
+			{
+				int money = (int)(Math.random()*20+1)*1000000;
+				arr[i] = new Athelete(firstName,lastName,home,money);
+			}
+			
 		}
 		
 	}
