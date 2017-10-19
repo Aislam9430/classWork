@@ -7,8 +7,16 @@ public class ObjectMain
 	{
 		Person[] people = new Person[120];
 		populate(people);
-		Person[] group = selectGroup(people,120);
-		analyzeCommonalities(people,group);
+		/*Person[] group = selectGroup(people,120);
+		analyzeCommonalities(people,group);*/
+		for(Person p:people)
+		{
+			p.mingle(people);
+			System.out.println(p);
+			p.stateYourFriends();
+		}
+		
+		
 		
 	}
 	private void analyzeCommonalities(Person[] people, Person[] group) 
@@ -22,7 +30,7 @@ public class ObjectMain
 			totalCount += countCommonalities(people,group);
 		}
 		averageCommonalities = totalCount/500;
-		System.out.println(averageCommonalities);
+		//System.out.println(averageCommonalities);
 		
 	}
 	private int countCommonalities(Object[] arr1,Object[] arr2)
