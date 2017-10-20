@@ -16,7 +16,47 @@ public class Person
 		private Borough home;
 		private Hobby hobby;
 		private Person[] friends;
+		private String nickname;
 		
+		public static String createNickname(String name)
+		{
+			name = name.toLowerCase();
+			String[] vowels = new String[name.length()];
+			int vowelCounter = 0;
+			for(int i = 0; i<name.length();i++)
+			{
+				String letter = name.substring(i, i+1);
+				if(isVowel(letter))
+				{
+					vowels[vowelCounter] = letter;
+					vowelCounter++;
+				}
+			}
+			if(vowels.length < 2)
+			{
+				return name;
+			}
+			return name.substring(0,name.indexOf(vowels[1]));
+			
+		}
+		public String getFirstName() 
+		{
+			return firstName;
+		}
+		public void setFirstName(String firstName) 
+		{
+			this.firstName = firstName;
+		}
+		private static boolean isVowel(String vol)
+		{
+			vol = vol.toLowerCase();
+			if(vol.equals("a") || vol.equals("e") 
+			|| vol.equals("i") || vol.equals("o") || vol.equals("u"))
+			{
+				return true;
+			}
+			return false;
+		}
 		public Person(String first,String last,Borough home)
 		{
 			this.firstName = first;
@@ -24,6 +64,7 @@ public class Person
 			this.home= home;
 			friends = new Person[3];
 			hobby = Hobby.randomHobby();
+			nickname = createNickname(firstName);
 
 		}
 		public void stateYourFriends()
@@ -57,7 +98,7 @@ public class Person
 		}
 		public String toString()
 		{
-			return "Hi My name is" + " " + firstName+ " "  + lastName + " " 
+			return "Hi My name is" + " " + firstName+ " "  + lastName + ".Call me" + nickname + " " 
 			+  " "  +"and I am from" + " " + home;
 		}
 		
