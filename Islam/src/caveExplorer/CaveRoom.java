@@ -18,6 +18,7 @@ public class CaveRoom
 	public static final int SOUTH = 2;
 	public static final int WEST = 3;
 	
+	
 	public CaveRoom(String description) 
 	{
 		this.description = description;
@@ -160,7 +161,24 @@ public class CaveRoom
 	
 	public static void setUpCaves()
 	{
+		CaveExplorer.caves = new CaveRoom[5][5];
+		CaveRoom[][] c = CaveExplorer.caves;
+		//populate with default caves
+		for(int row = 0 ; row < c.length; row++)
+		{
+			for(int col = 0; col < c[row].length; col++)
+			{
+				c[row][col] = new CaveRoom("This cave has coordinates"+row+","+col);
+			}
+		}
+		//replace some defaults wit customs
 		
+		/// set starting room
+		CaveExplorer.currentRoom = c[0][1];
+		CaveExplorer.currentRoom.enter();
+		//set up doors
+		c[0][1].setConnections(SOUTH, c[1][1], new Door());
+		c[1][1].setConnections(EAST, c[1][2], new Door());
 	}
 
 	public void goToRoom(int direction)
