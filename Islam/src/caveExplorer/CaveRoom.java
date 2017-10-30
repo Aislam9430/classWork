@@ -204,5 +204,11 @@ public class CaveRoom
 		int[] num = {2,3,0,1};
 		return num[dir];
 	}
+
+
+	public Door getDoor(int direction) {
+		
+		return doors[direction];
+	}
 	
 }
