@@ -79,4 +79,25 @@ public class NPC
 		
 	}
 
+	public void autoMove() 
+	{
+		if(active)
+		{
+			int[] move= calculateMove();
+			int newRow = currentRow + move[0];
+			int newCol = currentCol + move[1];
+			setPosition(newRow,newCol);
+		}
+	}
+
+	private int[] calculateMove() 
+	{
+		int[][] possibleMoves = {{-1,0},{0,1},{1,0},{0,-1}};
+		int index = 
+		
+		
+		
+	}
+	
+
 }
