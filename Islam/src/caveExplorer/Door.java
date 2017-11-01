@@ -1,6 +1,6 @@
 package caveExplorer;
 
-public class Door 
+public class Door
 {
 
 	private boolean locked;
@@ -8,7 +8,7 @@ public class Door
 	private String description;
 	private String details;
 	
-	public Door() 
+	public Door()
 	{
 		locked = false;
 		open = true;
@@ -16,7 +16,7 @@ public class Door
 		details = "";
 	}
 
-	public boolean isLocked()
+	public boolean isLocked() 
 	{
 		return locked;
 	}
@@ -31,12 +31,12 @@ public class Door
 		return open;
 	}
 
-	public void setOpen(boolean open) 
+	public void setOpen(boolean open)
+	
 	{
 		this.open = open;
 	}
 
-	
 	public String getDescription() 
 	{
 		return description;
@@ -52,7 +52,7 @@ public class Door
 		return details;
 	}
 
-	public void setDetails(String details)
+	public void setDetails(String details) 
 	{
 		this.details = details;
 	}
