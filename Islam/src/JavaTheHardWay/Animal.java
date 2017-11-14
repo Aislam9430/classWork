@@ -48,7 +48,7 @@ public class Animal {
 	{
 		for(int i = 0; i < 10; i++)
 		{
-			Animal someAnimal = new Animal()
+			Animal someAnimal = new Animal();
 			System.out.println(someAnimal);
 		}
 
