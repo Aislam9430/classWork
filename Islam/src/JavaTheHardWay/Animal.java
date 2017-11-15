@@ -74,7 +74,7 @@ public class Animal {
 		return age;
 	}
 
-	public boolean isMated() 
+	public boolean hasMated() 
 	{
 		return mated;
 	}
