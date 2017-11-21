@@ -25,7 +25,7 @@ public class Predator extends ReproductionAnimal
 		Wilderness wilderness = new Wilderness("A wooded area", 10);
 		Predator p = new Predator(wilderness);
 		wilderness.addAnimal(p);
-		wilderness.simulate(2);+
+		wilderness.simulate(2);
 	}
 	public ReproductionAnimal getOffspring(ReproductionAnimal mate)
 	{
