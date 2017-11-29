@@ -50,7 +50,7 @@ public class Searching
 				+ "Try to find the number "+target+"."
 				+ "\n    Press 'enter' to begin.");
 		in.nextLine();
-		int index = search(numbers, target);
+		int index = search(numbers, target, 0, numbers.length-1);
 		if(index!=-1)
 		{
 			System.out.println("The number "+target+" was found at index "+index+". Did the computer win?");
@@ -63,25 +63,84 @@ public class Searching
  
  }
 
-	//TODO fill in the method body:
+
 	private int search(int[] searchThis, int startIndex, int endIndex,int target)
 	{
 		int middle = (startIndex + endIndex)/2;
-		if(middle == target)
+		if(searchThis[middle] == target)
 		{
-			return target; 
+			return searchThis[middle]; 
+		}
+		if(startIndex == middle && endIndex == middle)
+		{
+			return -1;
 		}
 		else
 		{
-			
+			if(target < searchThis[middle])
+			{
+				return search(searchThis,startIndex,middle,target);
+			}
+			else if(target > searchThis[middle])
+			{
+				search(searchThis,middle,endIndex,target);
+			}
 		}
-
-		
- 
- 
 		return -1;
 	}
  
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 	private void delay(int handicap2)

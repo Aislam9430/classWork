@@ -11,30 +11,41 @@ public class StringFromFileLoader {
 
 	private String fileContent;
 
-	public StringFromFileLoader(String fileLocation) {
+	public StringFromFileLoader(String fileLocation) 
+	{
+		
 		fileContent = "";
 		readFile(fileLocation);
 
 	}
 
-	public String getFileContent(){
+	public String getFileContent()
+	{
 		return fileContent;
 	}
 	
-	private void readFile(String fileName) {
+	private void readFile(String fileName) 
+	{
 		// (1) loads the entire file
 		FileReader fr;
-		try {
+		try 
+		{
 			fr = new FileReader(fileName);
 			BufferedReader br = new BufferedReader(fr); 
 			String newLine;
-			while ((newLine = br.readLine()) != null){
+			while ((newLine = br.readLine()) != null)
+			{
 				fileContent+=newLine;
 			}
 			br.close();
-		} catch (FileNotFoundException e) {
+		} 
+		catch (FileNotFoundException e) 
+		{
+			
 			e.printStackTrace();
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			e.printStackTrace();
 		} 
 
