@@ -1,8 +1,56 @@
 package search;
 
-public class TowersOfHanoi {
+public class TowersOfHanoi 
+{
 	
-	enum Tower
+	public static void main(String[] args)
+	{
+		 hanoi(3,"a","b","c");
+	}
+	public static void hanoi(int n, String start,String help,String end)
+	{
+		if(n == 1)
+		{
+			System.out.println(start + "to" + end);
+		}
+		else
+		{
+			hanoi(n-1,start,end,help);
+			System.out.println(start + "to" + end);
+			hanoi(n-1,help,start,end);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*enum Tower
 	{
 		START,
 		HELPER,
@@ -92,6 +140,6 @@ public class TowersOfHanoi {
 	public int getTopNum(String s) 
 	{
 		return Integer.parseInt(s.substring(s.length()-1,s.length()));
-	}
+	}*/
 }
 
